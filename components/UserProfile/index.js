@@ -1,11 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
 
 const UserProfile = props => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [cityName, setCityName] = useState('');
-  const [countryName, setCountrtyName] = useState('');
+  const [firstName, setFirstName] = useState(props.firstName);
+  const [lastName, setLastName] = useState(props.lastName);
+  const [cityName, setCityName] = useState(props.cityName);
+  const [countryName, setCountrtyName] = useState(props.countryName);
+
+  useEffect(() => {
+    setFirstName(props.firstName);
+  }, [props.firstName]);
+  useEffect(() => {
+    setLastName(props.lastName);
+  }, [props.lastName]);
+  useEffect(() => {
+    setCityName(props.cityName);
+  }, [props.cityName]);
+  useEffect(() => {
+    setCountrtyName(props.countryName);
+  }, [props.countryName]);
 
   const textInputStyle = {
     backgroundColor: 'pink',
