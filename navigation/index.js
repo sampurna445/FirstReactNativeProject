@@ -8,6 +8,7 @@ import {
   Dashboard,
   Login,
 } from '../screens';
+import TestPureComponent from '../screens/TestPureComponent';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,16 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="testPureComponent"
+          component={TestPureComponent}
+          options={{title: 'Test Pure Component'}}
+        />
+        <Stack.Screen
+          name="testStateProps"
+          component={TestStatePropsScreen}
+          options={{title: 'Test State and Props'}}
+        />
         <Stack.Screen
           name="dashboard"
           component={Dashboard}
@@ -24,11 +35,6 @@ const Navigator = () => {
           name="testFlex"
           component={TestFlexScreen}
           options={{title: 'Testing Flex System'}}
-        />
-        <Stack.Screen
-          name="testStateProps"
-          component={TestStatePropsScreen}
-          options={{title: 'Test State and Props'}}
         />
       </Stack.Group>
     );

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   TextInput,
   ScrollView,
   Image,
   TouchableOpacity,
+  Text,
 } from 'react-native';
 import {UserProfile, UserList} from '../../components';
 import styles from '../../styles';
@@ -31,25 +32,12 @@ const TestStatePropsScreen = props => {
           }}
           style={{backgroundColor: 'grey', margin: 10, height: 40}}
         />
-        <TextInput
-          value={cityName}
-          onChangeText={changedText => {
-            setCityName(changedText);
-          }}
-          style={{backgroundColor: 'grey', margin: 10, height: 40}}
-        />
-        <TextInput
-          value={countryName}
-          onChangeText={changedText => {
-            setCountrtyName(changedText);
-          }}
-          style={{backgroundColor: 'grey', margin: 10, height: 40}}
-        />
+
         <UserProfile
           firstName={firstName}
           lastName={lastName}
-          cityName={cityName}
-          countryName={countryName}
+          cityName={'London'}
+          countryName={'UK'}
           childrenStyle={styles.userProfileStyle}
           onSubmitPressed={fetchedData => {
             setUserList([...userList, fetchedData]);
