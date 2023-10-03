@@ -9,17 +9,16 @@ class TestPureClassComponent extends React.Component {
       testValue: '',
     };
   }
-  // shouldComponentUpdate(nextProps, nextState) {
-  //return true when current state is not equalt to previous state
-  //                   OR
-  //return true when current prop is not equalt to previous prop
-  // return (
-  //   !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state)
-  // );
-  // return true;
-  //return nextProps.errorMessage!==this.props.errorMessage;
-
-  //}
+  shouldComponentUpdate(nextProps, nextState) {
+    //return true when current state is not equalt to previous state
+    //                   OR
+    //return true when current prop is not equalt to previous prop
+    // return (
+    //   !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state)
+    // );
+    // return true;
+    return nextProps.errorMessage !== this.props.errorMessage;
+  }
   render() {
     console.log('render of test pure class component');
     return (
