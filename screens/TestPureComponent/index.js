@@ -13,7 +13,8 @@ const TestPureComponent = () => {
   }, []);
 
   const myAsyncFetchMethod = async () => {
-    const fetchedValue = await PersistanceHelper.getValue('testkey');
+    // const fetchedValue = await PersistanceHelper.getValue('testkey');
+    const fetchedObject = await PersistanceHelper.getObject('testkey');
     console.log(fetchedValue);
   };
 

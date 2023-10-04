@@ -13,7 +13,8 @@ import {PersistanceHelper} from './helpers';
 
 function App() {
   useEffect(() => {
-    PersistanceHelper.setValue('testkey', 'testvalue');
+    // PersistanceHelper.setValue('testkey', 'testvalue');
+    PersistanceHelper.setObject('testkey', {a: 'b', c: 'd', e: 'f'});
   }, []);
   return (
     <NavigationContainer>
