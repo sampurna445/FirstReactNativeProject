@@ -6,26 +6,37 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPasssword] = useState('');
   return (
-    <View>
+    <View style={{flex: 1}}>
       <Text>Login</Text>
       <TextInput
-        value={''}
-        style={{backgroundColor: 'grey', padding: 10, margin: 10, height40}}
+        value={email}
+        style={{backgroundColor: 'grey', padding: 10, margin: 10, height: 40}}
         onChangeText={changedText => {
           setEmail(changedText);
         }}
         placeholder="Email"
       />
       <TextInput
-        value={''}
-        style={{backgroundColor: 'grey', padding: 10, margin: 10, height40}}
+        value={password}
+        style={{backgroundColor: 'grey', padding: 10, margin: 10, height: 40}}
         onChangeText={changedText => {
           setPasssword(changedText);
         }}
         secureTextEntry
         placeholder="Password"
       />
-      <TouchableOpacity onPress={() => {}}></TouchableOpacity>
+      <TouchableOpacity
+        style={{
+          marginHorizontal: 10,
+
+          height: 40,
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'blue',
+        }}
+        onPress={() => {}}>
+        <Text>LOGIN</Text>
+      </TouchableOpacity>
     </View>
   );
 };
