@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {PersistanceHelper} from '../../helpers';
+import {EventRegister} from 'react-native-event-listeners';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -28,13 +29,15 @@ const Login = () => {
       <TouchableOpacity
         style={{
           marginHorizontal: 10,
-
           height: 40,
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: 'blue',
         }}
-        onPress={() => {}}>
+        onPress={() => {
+          PersistanceHelper.setValue('userEmail', email);
+          EventRegister.emit('LoginEvent', 'It Works');
+        }}>
         <Text>LOGIN</Text>
       </TouchableOpacity>
     </View>
