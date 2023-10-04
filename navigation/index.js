@@ -18,9 +18,12 @@ const Navigator = () => {
   const [isUserLoggedIn, setUserLoggedIn] = useState('false');
   useEffect(() => {
     fetchUserEmail();
-    EventRegister.addEventListener('LoginEvent', data => {
+    let event = EventRegister.addEventListener('LoginEvent', data => {
       fetchUserEmail();
     });
+    return () => {
+      EventRegister.removeEventListener(event);
+    };
   }, []);
 
   const fetchUserEmail = async () => {
