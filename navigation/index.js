@@ -8,6 +8,7 @@ import {
   TestStatePropsScreen,
   Dashboard,
   Login,
+  TestPropsScreen,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -38,10 +39,16 @@ const Navigator = () => {
     return (
       <Stack.Group>
         <Stack.Screen
+          name="testPropsScreen"
+          component={TestPropsScreen}
+          options={{title: 'Test Props Screen Component'}}
+        />
+        <Stack.Screen
           name="testPureComponent"
           component={TestPureComponent}
           options={{title: 'Test Pure Component'}}
         />
+
         <Stack.Screen
           name="testStateProps"
           component={TestStatePropsScreen}
@@ -76,7 +83,7 @@ const Navigator = () => {
   return (
     <Stack.Navigator>
       {/* {isUserLoggedIn ? getMainStack() : getAuthStack()} */}
-      {getAuthStack()}
+      {getMainStack()}
     </Stack.Navigator>
   );
 };
