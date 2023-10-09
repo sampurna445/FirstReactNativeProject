@@ -10,6 +10,7 @@ import {
   Login,
   TestPropsScreen,
   TestReduxScreen,
+  TestReduxClassScreen,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -42,8 +43,14 @@ const Navigator = () => {
         <Stack.Screen
           name="testReduxScreen"
           component={TestReduxScreen}
-          options={{title: 'Test Redux Screen Component'}}
+          options={{title: 'Test Redux Func Component'}}
         />
+        <Stack.Screen
+          name="testReduxClassScreen"
+          component={TestReduxClassScreen}
+          options={{title: 'Test Redux Class  Component'}}
+        />
+
         <Stack.Screen
           name="testPropsScreen"
           component={TestPropsScreen}
