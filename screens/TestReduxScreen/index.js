@@ -1,9 +1,14 @@
-import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {decrement, increment} from '../../features/counter/counterSlice';
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from '../../features/counter/counterSlice';
 import {connect} from 'react-redux';
 const TestReduxScreen = props => {
+  const [inputVal, setInputVal] = useState('');
   const dispatch = useDispatch();
   const count = useSelector(state => state.counter.value);
   return (
@@ -25,6 +30,21 @@ const TestReduxScreen = props => {
           dispatch(decrement());
         }}>
         <Text>Decrement</Text>
+      </TouchableOpacity>
+      <TextInput
+        value={inputVal}
+        keyboardType="numeric"
+        style={{height: 40, backgroundColor: 'yellow', padding: 5, margin: 10}}
+        onChangeText={changedText => {
+          setInputVal(changedText);
+        }}
+      />
+      <TouchableOpacity
+        onPress={() => {
+          // props.decrement();
+          dispatch(incrementByAmount(parseInt(inputVal)));
+        }}>
+        <Text>Increment By Value</Text>
       </TouchableOpacity>
     </View>
   );
