@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, TextInput} from 'react-native';
+import {View, Text, TouchableOpacity, FlatList, TextInput} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   decrement,
@@ -7,10 +7,15 @@ import {
   incrementByAmount,
 } from '../../features/counter/counterSlice';
 import {connect} from 'react-redux';
+import {addCar} from '../../features/cars/carSlice';
+
 const TestReduxScreen = props => {
   const [inputVal, setInputVal] = useState('');
+  const [currentCar, setCurrentCar] = useState('');
+
   const dispatch = useDispatch();
   const count = useSelector(state => state.counter.value);
+  const cars = useSelector(state => state.car);
   return (
     <View>
       <Text>Test Redux Func Componnet</Text>
@@ -45,6 +50,31 @@ const TestReduxScreen = props => {
           dispatch(incrementByAmount(parseInt(inputVal)));
         }}>
         <Text>Increment By Value</Text>
+      </TouchableOpacity>
+      <FlatList
+        data={cars}
+        renderItem={({item, index}) => {
+          return (
+            <View>
+              <Text>{item}</Text>
+            </View>
+          );
+        }}
+      />
+
+      <TextInput
+        value={currentCar}
+        onChangeText={changedText => {
+          setCurrentCar(changedText);
+        }}
+        style={{backgroundColor: 'pink', height: 40, padding: 5, margin: 10}}
+      />
+
+      <TouchableOpacity
+        onPress={() => {
+          dispatch(addCar(currentCar));
+        }}>
+        <Text>Add Car</Text>
       </TouchableOpacity>
     </View>
   );
