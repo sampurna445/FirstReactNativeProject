@@ -9,6 +9,7 @@ import {
   Dashboard,
   Login,
   TestPropsScreen,
+  TestReduxScreen,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -38,6 +39,11 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="testReduxScreen"
+          component={TestReduxScreen}
+          options={{title: 'Test Redux Screen Component'}}
+        />
         <Stack.Screen
           name="testPropsScreen"
           component={TestPropsScreen}
