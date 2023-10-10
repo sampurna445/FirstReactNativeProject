@@ -3,7 +3,7 @@ import {View, Text, FlatList} from 'react-native';
 import {useSelector} from 'react-redux';
 
 const CartScreen = () => {
-  const cartItems = useSelector(state => state.cart.cartItems);
+  const cartItems = useSelector(state => state.cartReducer.cartItems);
   return (
     <View>
       <Text>Test Cart</Text>
