@@ -3,6 +3,7 @@ import {Button} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {EventRegister} from 'react-native-event-listeners';
 import {useNavigation} from '@react-navigation/native';
+
 import {
   TestFlexScreen,
   TestStatePropsScreen,
@@ -23,6 +24,7 @@ const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
   const navigation = useNavigation();
+
   const [isUserLoggedIn, setUserLoggedIn] = useState('false');
 
   const [currentUserAuth, setCurrentUserAuth] = useState('');
