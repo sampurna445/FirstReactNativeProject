@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
-import {} from 'react-native';
+import {Button} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {EventRegister} from 'react-native-event-listeners';
-
+import {useNavigation} from '@react-navigation/native';
 import {
   TestFlexScreen,
   TestStatePropsScreen,
@@ -12,6 +12,7 @@ import {
   TestReduxScreen,
   TestReduxClassScreen,
   ListScreen,
+  CartScreen,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -21,6 +22,7 @@ import {useDispatch, useSelector} from 'react-redux/es/hooks/useSelector';
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
+  const navigation = useNavigation();
   const [isUserLoggedIn, setUserLoggedIn] = useState('false');
 
   const [currentUserAuth, setCurrentUserAuth] = useState('');
@@ -60,7 +62,23 @@ const Navigator = () => {
         <Stack.Screen
           name="listScreen"
           component={ListScreen}
-          options={{title: 'List Screen Component'}}
+          options={{
+            title: 'List Screen',
+            headerRight: () => (
+              <Button
+                onPress={() => {
+                  navigation.navigate('cartScreen');
+                }}
+                title="Cart"
+                color="red"
+              />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="cartScreen"
+          component={CartScreen}
+          options={{title: 'Cart Screen'}}
         />
         <Stack.Screen
           name="testReduxScreen"
