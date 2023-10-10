@@ -11,14 +11,31 @@ import {
   TestPropsScreen,
   TestReduxScreen,
   TestReduxClassScreen,
+  ListScreen,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
+import {loginUser, logoutUser} from '../features/userAuth/userAuthSlice';
+import {useDispatch, useSelector} from 'react-redux/es/hooks/useSelector';
 
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
   const [isUserLoggedIn, setUserLoggedIn] = useState('false');
+
+  const [currentUserAuth, setCurrentUserAuth] = useState('');
+
+  // const dispatch = useDispatch();
+  // const userAuth = useSelector(state => state.userAuth);
+
+  // const isUserAuth = () => {
+  //   if (userAuth.length > 0 && userAuth) {
+  //     dispatch(loginUser);
+  //   } else {
+  //     dispatch(logoutUser);
+  //   }
+  // };
+
   useEffect(() => {
     fetchUserEmail();
     let event = EventRegister.addEventListener('LoginEvent', data => {
@@ -40,6 +57,11 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="listScreen"
+          component={ListScreen}
+          options={{title: 'List Screen Component'}}
+        />
         <Stack.Screen
           name="testReduxScreen"
           component={TestReduxScreen}

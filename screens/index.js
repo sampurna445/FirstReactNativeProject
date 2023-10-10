@@ -7,6 +7,8 @@ import TestPureComponent from './TestPureComponent/index';
 import TestReduxClassScreen from './TestReduxClassScreen';
 import TestPropsScreen from './TestPropsScreen/index';
 import TestReduxScreen from './TestReduxScreen/index';
+import ListScreen from './ListScreen/index';
+import CartScreen from './cartScreen/index';
 
 export {
   TestFlexScreen,
@@ -17,4 +19,6 @@ export {
   TestPropsScreen,
   TestReduxScreen,
   TestReduxClassScreen,
+  ListScreen,
+  CartScreen,
 };
