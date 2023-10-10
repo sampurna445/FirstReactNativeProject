@@ -24,32 +24,34 @@ const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
 
   const [isUserLoggedIn, setUserLoggedIn] = useState('false');
 
   const [currentUserAuth, setCurrentUserAuth] = useState('');
 
-  // const dispatch = useDispatch();
-  // const userAuth = useSelector(state => state.userAuth);
+  const dispatch = useDispatch();
+  const userAuth = useSelector(state => state.userAuth);
 
-  // const isUserAuth = () => {
-  //   if (userAuth.length > 0 && userAuth) {
-  //     dispatch(loginUser);
-  //   } else {
-  //     dispatch(logoutUser);
-  //   }
-  // };
-
+  const checkuserLoggedIn = () => {
+    if (userAuth.email == '') {
+      setUserLoggedIn(false);
+    } else {
+      setUserLoggedIn(true);
+    }
+  };
   useEffect(() => {
-    fetchUserEmail();
-    let event = EventRegister.addEventListener('LoginEvent', data => {
-      fetchUserEmail();
-    });
-    return () => {
-      EventRegister.removeEventListener(event);
-    };
-  }, []);
+    checkuserLoggedIn();
+  }, [userAuth]);
+
+  // useEffect(() => {
+  //   fetchUserEmail();
+  //   let event = EventRegister.addEventListener('LoginEvent', data => {
+  //     fetchUserEmail();
+  //   });
+  //   return () => {
+  //     EventRegister.removeEventListener(event);
+  //   };
+  // }, []);
 
   const fetchUserEmail = async () => {
     const userEmail = await PersistanceHelper.getValue('userEmail');
@@ -62,6 +64,11 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="dashboard"
+          component={Dashboard}
+          options={{title: 'Dashboard'}}
+        />
         <Stack.Screen
           name="listScreen"
           component={ListScreen}
@@ -121,11 +128,7 @@ const Navigator = () => {
           component={TestStatePropsScreen}
           options={{title: 'Test State and Props'}}
         />
-        <Stack.Screen
-          name="dashboard"
-          component={Dashboard}
-          options={{title: 'Dashboard'}}
-        />
+
         <Stack.Screen
           name="testFlex"
           component={TestFlexScreen}
@@ -149,8 +152,8 @@ const Navigator = () => {
 
   return (
     <Stack.Navigator>
-      {/* {isUserLoggedIn ? getMainStack() : getAuthStack()} */}
-      {getMainStack()}
+      {isUserLoggedIn ? getMainStack() : getAuthStack()}
+      {/* {getMainStack()} */}
     </Stack.Navigator>
   );
 };
