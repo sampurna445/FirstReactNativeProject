@@ -3,7 +3,7 @@ import {Button} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {EventRegister} from 'react-native-event-listeners';
 import {useNavigation} from '@react-navigation/native';
-
+import {useSelector, useDispatch} from 'react-redux';
 import {
   TestFlexScreen,
   TestStatePropsScreen,
@@ -18,12 +18,13 @@ import {
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
 import {loginUser, logoutUser} from '../features/userAuth/userAuthSlice';
-import {useDispatch, useSelector} from 'react-redux/es/hooks/useSelector';
+import {clearCart} from '../features/cart/cartSlice';
 
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const [isUserLoggedIn, setUserLoggedIn] = useState('false');
 
@@ -80,7 +81,18 @@ const Navigator = () => {
         <Stack.Screen
           name="cartScreen"
           component={CartScreen}
-          options={{title: 'Cart Screen'}}
+          options={{
+            title: 'Cart Screen',
+            headerRight: () => (
+              <Button
+                onPress={() => {
+                  dispatch(clearCart());
+                }}
+                title="Clear Cart"
+                color="red"
+              />
+            ),
+          }}
         />
         <Stack.Screen
           name="testReduxScreen"
