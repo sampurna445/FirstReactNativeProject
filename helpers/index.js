@@ -1,2 +1,4 @@
 import PersistanceHelper from './PersistanceHelper';
-export {PersistanceHelper};
+import ApiHelper from './ApiHelper';
+
+export {PersistanceHelper, ApiHelper};

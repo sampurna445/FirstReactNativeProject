@@ -14,6 +14,7 @@ import {
   TestReduxClassScreen,
   ListScreen,
   CartScreen,
+  ListApiScreen,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -64,6 +65,11 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="listApiScreen"
+          component={ListApiScreen}
+          options={{title: 'API'}}
+        />
         <Stack.Screen
           name="listScreen"
           component={ListScreen}
