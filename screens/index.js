@@ -10,6 +10,7 @@ import TestReduxScreen from './TestReduxScreen/index';
 import CartScreen from './CartScreen';
 import ListScreen from './ListScreen';
 import ListApiScreen from './ListApiScreen';
+import ApiSauceScreen from './ApiSauceScreen';
 
 export {
   TestFlexScreen,
@@ -23,4 +24,5 @@ export {
   ListScreen,
   CartScreen,
   ListApiScreen,
+  ApiSauceScreen,
 };
