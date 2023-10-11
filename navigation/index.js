@@ -65,11 +65,6 @@ const Navigator = () => {
     return (
       <Stack.Group>
         <Stack.Screen
-          name="dashboard"
-          component={Dashboard}
-          options={{title: 'Dashboard'}}
-        />
-        <Stack.Screen
           name="listScreen"
           component={ListScreen}
           options={{
@@ -100,6 +95,11 @@ const Navigator = () => {
               />
             ),
           }}
+        />
+        <Stack.Screen
+          name="dashboard"
+          component={Dashboard}
+          options={{title: 'Dashboard'}}
         />
         <Stack.Screen
           name="testReduxScreen"
