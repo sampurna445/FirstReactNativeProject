@@ -24,7 +24,9 @@ const ApiSauceScreen = () => {
         renderItem={({item, index}) => {
           return (
             <View style={{margin: 10, backgroundColor: '#E871BE'}}>
-              <Text style={{color: 'white'}}>{item.title}</Text>
+              <Text style={{color: 'white', fontFamily: 'Poppins'}}>
+                {item.title}
+              </Text>
               <Text style={{color: 'white'}}>{item.id}</Text>
               <Text style={{color: 'white'}}>{item.userId}</Text>
             </View>
