@@ -11,6 +11,7 @@ import CartScreen from './CartScreen';
 import ListScreen from './ListScreen';
 import ListApiScreen from './ListApiScreen';
 import ApiSauceScreen from './ApiSauceScreen';
+import TestRefScreen from './TestRefScreen';
 
 export {
   TestFlexScreen,
@@ -25,4 +26,5 @@ export {
   CartScreen,
   ListApiScreen,
   ApiSauceScreen,
+  TestRefScreen,
 };

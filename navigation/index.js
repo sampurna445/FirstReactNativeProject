@@ -16,6 +16,7 @@ import {
   CartScreen,
   ListApiScreen,
   ApiSauceScreen,
+  TestRefScreen,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -66,6 +67,11 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="TestRefScreen"
+          component={TestRefScreen}
+          options={{title: 'Test useRef Screen'}}
+        />
         <Stack.Screen
           name="apiSauceScreen"
           component={ApiSauceScreen}
