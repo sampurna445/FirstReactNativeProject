@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.firstreactproject"
+    namespace "com.itc.firstreactproject"
     defaultConfig {
-        applicationId "com.firstreactproject"
+        applicationId "com.itc.firstreactproject"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
