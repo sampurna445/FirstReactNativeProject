@@ -17,6 +17,7 @@ import {
   ListApiScreen,
   ApiSauceScreen,
   TestRefScreen,
+  TestReduxToolKitQuery,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -67,6 +68,11 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="testReduxToolKitQuery"
+          component={TestReduxToolKitQuery}
+          options={{title: 'Test Redux ToolKit Query'}}
+        />
         <Stack.Screen
           name="TestRefScreen"
           component={TestRefScreen}

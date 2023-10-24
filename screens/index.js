@@ -12,7 +12,7 @@ import ListScreen from './ListScreen';
 import ListApiScreen from './ListApiScreen';
 import ApiSauceScreen from './ApiSauceScreen';
 import TestRefScreen from './TestRefScreen';
-
+import TestReduxToolKitQuery from './TestReduxToolKitQuery';
 export {
   TestFlexScreen,
   TestStatePropsScreen,
@@ -27,4 +27,5 @@ export {
   ListApiScreen,
   ApiSauceScreen,
   TestRefScreen,
+  TestReduxToolKitQuery,
 };

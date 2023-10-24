@@ -4,6 +4,7 @@ import {createLogger} from 'redux-logger';
 import carReducer from './features/cars/carSlice';
 import userAuthReducer from './features/userAuth/userAuthSlice';
 import cartReducer from './features/cart/cartSlice';
+import {todosApiUsingRTKQuery} from './config/todosApiUsingRTKQuery';
 
 const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
 
@@ -20,6 +21,8 @@ export const store = configureStore({
     car: carReducer,
     userAuth: userAuthReducer,
     cartReducer: cartReducer,
+    todos: todosApiUsingRTKQuery.reducer,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(logger, todosApiUsingRTKQuery.middleware),
 });
