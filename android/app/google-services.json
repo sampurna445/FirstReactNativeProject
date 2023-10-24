@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "76149092709",
+    "project_id": "firstreactproject-b3335",
+    "storage_bucket": "firstreactproject-b3335.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76149092709:android:45d6c475a56612d893b18c",
+        "android_client_info": {
+          "package_name": "com.itc.firstreactproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl9UW_omMJO-_YNUN03JKCmqiwOwwtDhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
