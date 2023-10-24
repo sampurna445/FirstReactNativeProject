@@ -28,24 +28,32 @@ const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
   const navigation = useNavigation();
+  const user = useSelector(state => state.user);
 
-  const [isUserLoggedIn, setUserLoggedIn] = useState('false');
-
-  const [currentUserAuth, setCurrentUserAuth] = useState('');
-
-  const dispatch = useDispatch();
-  const userAuth = useSelector(state => state.userAuth);
-
-  const checkuserLoggedIn = () => {
-    if (userAuth.email == '') {
-      setUserLoggedIn(false);
-    } else {
-      setUserLoggedIn(true);
-    }
+  const isUserLoggedIn = () => {
+    return true;
+    return user?.data?.id && user?.data?.id?.length > 15;
   };
+  const dispatch = useDispatch();
   useEffect(() => {
-    checkuserLoggedIn();
-  }, [userAuth]);
+    return () => {};
+  }, []);
+  //const [isUserLoggedIn, setUserLoggedIn] = useState('false');
+
+  //const [currentUserAuth, setCurrentUserAuth] = useState('');
+
+  //const userAuth = useSelector(state => state.userAuth);
+
+  // const checkuserLoggedIn = () => {
+  //   if (userAuth.email == '') {
+  //     setUserLoggedIn(false);
+  //   } else {
+  //     setUserLoggedIn(true);
+  //   }
+  // };
+  // useEffect(() => {
+  //   checkuserLoggedIn();
+  // }, [userAuth]);
 
   // useEffect(() => {
   //   fetchUserEmail();
@@ -57,14 +65,14 @@ const Navigator = () => {
   //   };
   // }, []);
 
-  const fetchUserEmail = async () => {
-    const userEmail = await PersistanceHelper.getValue('userEmail');
-    if (userEmail && userEmail.length > 0) {
-      setUserLoggedIn(true);
-    } else {
-      setUserLoggedIn(false);
-    }
-  };
+  // const fetchUserEmail = async () => {
+  //   const userEmail = await PersistanceHelper.getValue('userEmail');
+  //   if (userEmail && userEmail.length > 0) {
+  //     setUserLoggedIn(true);
+  //   } else {
+  //     setUserLoggedIn(false);
+  //   }
+  // };
   const getMainStack = () => {
     return (
       <Stack.Group>

@@ -4,6 +4,11 @@ import {PersistanceHelper} from '../../helpers';
 import {EventRegister} from 'react-native-event-listeners';
 import {useDispatch, useSelector} from 'react-redux';
 import {loginUser} from '../../features/userAuth/userAuthSlice';
+import {userActions} from '../../features/user/userSlice';
+
+import {kApiLogin} from '../../config/WebServices';
+
+const {request} = userActions;
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -17,6 +22,7 @@ const Login = () => {
       <Text>Login</Text>
       <TextInput
         value={email}
+        autoCapitalize={'none'}
         style={{backgroundColor: 'grey', padding: 10, margin: 10, height: 40}}
         onChangeText={changedText => {
           setEmail(changedText);
@@ -41,7 +47,10 @@ const Login = () => {
           backgroundColor: 'blue',
         }}
         onPress={() => {
-          dispatch(loginUser(email));
+          dispatch(
+            request({url: kApiLogin, data: {email: email, password: password}}),
+          );
+          //dispatch(loginUser(email));
           // PersistanceHelper.setValue('userEmail', email);
           // EventRegister.emit('LoginEvent', 'It Works');
         }}>

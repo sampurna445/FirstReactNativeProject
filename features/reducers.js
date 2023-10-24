@@ -4,6 +4,7 @@ import counterSlice from './counter/counterSlice';
 import userAuthSlice from './userAuth/userAuthSlice';
 import {todosApiUsingRTKQuery} from '../config/todosApiUsingRTKQuery';
 import itemsSclice from './items/itemsSclice';
+import userSlice from './user/userSlice';
 export default {
   counter: counterSlice,
   car: carSlice,
@@ -11,4 +12,5 @@ export default {
   cartReducer: cartSlice,
   todos: todosApiUsingRTKQuery.reducer,
   item: itemsSclice,
+  user: userSlice,
 };
