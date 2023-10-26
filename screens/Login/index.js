@@ -15,14 +15,14 @@ const Login = () => {
   const [password, setPasssword] = useState('');
 
   const dispatch = useDispatch();
-  const userAuth = useSelector(state => state.userAuth);
+  //const userAuth = useSelector(state => state.userAuth);
 
   return (
     <View style={{flex: 1}}>
       <Text>Login</Text>
       <TextInput
         value={email}
-        autoCapitalize={'none'}
+        autoCapitalize="none"
         style={{backgroundColor: 'grey', padding: 10, margin: 10, height: 40}}
         onChangeText={changedText => {
           setEmail(changedText);

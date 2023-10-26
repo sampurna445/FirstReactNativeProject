@@ -13,6 +13,8 @@ import ListApiScreen from './ListApiScreen';
 import ApiSauceScreen from './ApiSauceScreen';
 import TestRefScreen from './TestRefScreen';
 import TestReduxToolKitQuery from './TestReduxToolKitQuery';
+import LogoutScreenForUserSlice from './LogoutScreenForUserSlice';
+
 export {
   TestFlexScreen,
   TestStatePropsScreen,
@@ -28,4 +30,5 @@ export {
   ApiSauceScreen,
   TestRefScreen,
   TestReduxToolKitQuery,
+  LogoutScreenForUserSlice,
 };

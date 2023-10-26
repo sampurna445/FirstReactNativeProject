@@ -18,6 +18,7 @@ import {
   ApiSauceScreen,
   TestRefScreen,
   TestReduxToolKitQuery,
+  LogoutScreenForUserSlice,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -30,14 +31,13 @@ const Navigator = () => {
   const navigation = useNavigation();
   const user = useSelector(state => state.user);
 
-  const isUserLoggedIn = () => {
-    return true;
-    return user?.data?.id && user?.data?.id?.length > 15;
-  };
   const dispatch = useDispatch();
   useEffect(() => {
     return () => {};
   }, []);
+  const isUserLoggedIn = () => {
+    return user?.data?.id && user?.data?.id?.length > 15;
+  };
   //const [isUserLoggedIn, setUserLoggedIn] = useState('false');
 
   //const [currentUserAuth, setCurrentUserAuth] = useState('');
@@ -81,6 +81,12 @@ const Navigator = () => {
           component={ListApiScreen}
           options={{title: 'API'}}
         />
+        <Stack.Screen
+          name="logoutScreenForUserSlice"
+          component={LogoutScreenForUserSlice}
+          options={{title: 'Logout Screen For UserSlice'}}
+        />
+
         <Stack.Screen
           name="testReduxToolKitQuery"
           component={TestReduxToolKitQuery}
@@ -185,7 +191,7 @@ const Navigator = () => {
 
   return (
     <Stack.Navigator>
-      {isUserLoggedIn ? getMainStack() : getAuthStack()}
+      {isUserLoggedIn() ? getMainStack() : getAuthStack()}
       {/* {getMainStack()} */}
     </Stack.Navigator>
   );
