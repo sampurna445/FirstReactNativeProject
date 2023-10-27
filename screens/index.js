@@ -7,7 +7,7 @@ import TestPureComponent from './TestPureComponent/index';
 import TestReduxClassScreen from './TestReduxClassScreen';
 import TestPropsScreen from './TestPropsScreen/index';
 import TestReduxScreen from './TestReduxScreen/index';
-import CartScreen from './CartScreen';
+import CartScreen from './cartScreen';
 import ListScreen from './ListScreen';
 import ListApiScreen from './ListApiScreen';
 import ApiSauceScreen from './ApiSauceScreen';
