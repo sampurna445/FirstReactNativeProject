@@ -3,7 +3,7 @@ import {take, put, call, fork} from 'redux-saga/effects';
 import {itemsActions} from '../features/items/itemsSclice';
 import {ApiHelper, PersistanceHelper} from '../helpers';
 
-const {request, success, failure} = itemsActions;
+const {request, success, failure, addItem} = itemsActions;
 
 function callGetRequest(url, data, headers) {
   return ApiHelper.get(url, data, headers);
@@ -34,12 +34,14 @@ function* watchRequest() {
         response = yield call(callPostRequest, payload.url, rest, {
           'X-Access-Token': accessToken,
         });
+
+        yield put(addItem(response));
       } else {
         console.log('it came here');
         response = yield call(callGetRequest, payload.url, {});
-      }
 
-      yield put(success(response));
+        yield put(success(response));
+      }
     } catch (err) {
       yield put(failure(err.message));
 
