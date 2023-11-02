@@ -19,6 +19,8 @@ import {
   TestRefScreen,
   TestReduxToolKitQuery,
   LogoutScreenForUserSlice,
+  LocationScreen,
+  // TestClassLifeCycle,
 } from '../screens';
 import TestPureComponent from '../screens/TestPureComponent';
 import {PersistanceHelper} from '../helpers';
@@ -36,6 +38,7 @@ const Navigator = () => {
     return () => {};
   }, []);
   const isUserLoggedIn = () => {
+    return true;
     return user?.data?.id && user?.data?.id?.length > 15;
   };
   //const [isUserLoggedIn, setUserLoggedIn] = useState('false');
@@ -76,6 +79,16 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        {/* <Stack.Screen
+          name="testClassLifeCycle"
+          component={TestClassLifeCycle}
+          options={{title: 'TestClassLifeCycle'}}
+        /> */}
+        <Stack.Screen
+          name="locationScreen"
+          component={LocationScreen}
+          options={{title: 'Location Screen'}}
+        />
         <Stack.Screen
           name="listApiScreen"
           component={ListApiScreen}

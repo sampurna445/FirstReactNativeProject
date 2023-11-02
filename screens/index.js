@@ -7,13 +7,14 @@ import TestPureComponent from './TestPureComponent/index';
 import TestReduxClassScreen from './TestReduxClassScreen';
 import TestPropsScreen from './TestPropsScreen/index';
 import TestReduxScreen from './TestReduxScreen/index';
-import CartScreen from './cartScreen';
+import CartScreen from './CartScreen';
 import ListScreen from './ListScreen';
 import ListApiScreen from './ListApiScreen';
 import ApiSauceScreen from './ApiSauceScreen';
 import TestRefScreen from './TestRefScreen';
 import TestReduxToolKitQuery from './TestReduxToolKitQuery';
 import LogoutScreenForUserSlice from './LogoutScreenForUserSlice';
+import LocationScreen from './LocationScreen';
 
 export {
   TestFlexScreen,
@@ -31,4 +32,5 @@ export {
   TestRefScreen,
   TestReduxToolKitQuery,
   LogoutScreenForUserSlice,
+  LocationScreen,
 };
