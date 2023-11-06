@@ -38,7 +38,7 @@ const Navigator = () => {
     return () => {};
   }, []);
   const isUserLoggedIn = () => {
-    return true;
+    //return true;
     return user?.data?.id && user?.data?.id?.length > 15;
   };
   //const [isUserLoggedIn, setUserLoggedIn] = useState('false');
@@ -84,16 +84,18 @@ const Navigator = () => {
           component={TestClassLifeCycle}
           options={{title: 'TestClassLifeCycle'}}
         /> */}
-        <Stack.Screen
-          name="locationScreen"
-          component={LocationScreen}
-          options={{title: 'Location Screen'}}
-        />
+
         <Stack.Screen
           name="listApiScreen"
           component={ListApiScreen}
           options={{title: 'API'}}
         />
+        <Stack.Screen
+          name="locationScreen"
+          component={LocationScreen}
+          options={{title: 'Location Screen'}}
+        />
+
         <Stack.Screen
           name="logoutScreenForUserSlice"
           component={LogoutScreenForUserSlice}

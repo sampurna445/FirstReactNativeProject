@@ -1,12 +1,25 @@
 import {useEffect, useState} from 'react';
-import {Text, View, FlatList, TextInput, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  TextInput,
+  TouchableOpacity,
+  Button,
+} from 'react-native';
+import {
+  kApiTodos,
+  kApiGetItems,
+  kApiPostItem,
+  kApiGetPopularMoviews,
+} from '../../config/WebServices';
 import {ApiHelper} from '../../helpers';
-import {kApiTodos, kApiGetItems, kApiPostItems} from '../../config/WebServices';
-import {itemsActions} from '../../features/items/itemsSclice';
 import {useDispatch, useSelector} from 'react-redux';
+import {itemsActions} from '../../features/items/itemsSlice';
+import {PersistanceHelper} from '../../helpers';
 import {userActions} from '../../features/user/userSlice';
 
-const {request} = itemsActions;
+const {request, requestEvery, requestLatest} = itemsActions;
 
 const ListApiScreen = () => {
   const [title, setTitle] = useState('');
@@ -15,14 +28,25 @@ const ListApiScreen = () => {
 
   const items = useSelector(state => state.item);
   const dispatch = useDispatch();
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
     dispatch(request({url: kApiGetItems}));
-    // requsetApi();
+    // requestApi();
+
+    return () => {
+      console.log('list api screen is getting unmounted 1');
+    };
   }, []);
 
-  // const requsetApi = async () => {
+  useEffect(() => {
+    return () => {
+      console.log('list api screen is getting unmounted 2');
+    };
+  }, []);
+
+  // const requestApi = async () => {
   //   const response = await ApiHelper.get(kApiTodos);
 
   //   setData(response);
@@ -30,6 +54,30 @@ const ListApiScreen = () => {
 
   return (
     <View>
+      <Button
+        title={'Take'}
+        onPress={() => {
+          dispatch(
+            request({url: 'https://jsonplaceholder.typicode.com/todos'}),
+          );
+        }}
+      />
+      <Button
+        title={'Take Latest'}
+        onPress={() => {
+          dispatch(
+            requestLatest({url: 'https://jsonplaceholder.typicode.com/todos'}),
+          );
+        }}
+      />
+      <Button
+        title={'Take Every'}
+        onPress={() => {
+          dispatch(
+            requestEvery({url: 'https://jsonplaceholder.typicode.com/todos'}),
+          );
+        }}
+      />
       <FlatList
         data={items.items}
         renderItem={({item, index}) => {
@@ -40,7 +88,6 @@ const ListApiScreen = () => {
               <Text>{item.userId}</Text>
               <Text>{item.image}</Text>
               <Text>{item.details}</Text>
-              <Text>Testing</Text>
             </View>
           );
         }}
@@ -96,10 +143,14 @@ const ListApiScreen = () => {
               onPress={() => {
                 dispatch(
                   request({
-                    url: kApiPostItems,
+                    url: kApiPostItem,
                     data: {title, image, details, requestType: 'POST'},
                   }),
                 );
+
+                // setTitle('');
+                // setImage('');
+                // setDetails('');
               }}>
               <Text>Submit</Text>
             </TouchableOpacity>
@@ -115,4 +166,5 @@ const ListApiScreen = () => {
     </View>
   );
 };
+
 export default ListApiScreen;

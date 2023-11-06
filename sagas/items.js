@@ -1,6 +1,6 @@
 import {take, put, call, fork} from 'redux-saga/effects';
 
-import {itemsActions} from '../features/items/itemsSclice';
+import {itemsActions} from '../features/items/itemsSlice';
 import {ApiHelper, PersistanceHelper} from '../helpers';
 
 const {request, success, failure, addItem} = itemsActions;
@@ -29,8 +29,6 @@ function* watchRequest() {
 
         const accessToken = yield call(getAccessToken);
 
-        console.log(accessToken);
-
         response = yield call(callPostRequest, payload.url, rest, {
           'X-Access-Token': accessToken,
         });
@@ -43,7 +41,7 @@ function* watchRequest() {
         yield put(success(response));
       }
     } catch (err) {
-      yield put(failure(err.message));
+      yield put(failure(err?.message));
 
       // ErrorHelper.handleErrors(err, true);
     }

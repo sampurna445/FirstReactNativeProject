@@ -3,7 +3,7 @@ import cartSlice from './cart/cartSlice';
 import counterSlice from './counter/counterSlice';
 // import userAuthSlice from './userAuth/userAuthSlice';
 import {todosApiUsingRTKQuery} from '../config/todosApiUsingRTKQuery';
-import itemsSclice from './items/itemsSclice';
+import itemsSclice from './items/itemsSlice';
 import userSlice from './user/userSlice';
 
 export default {
