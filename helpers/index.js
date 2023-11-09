@@ -1,6 +1,6 @@
 import PersistanceHelper from './PersistanceHelper';
 import ApiHelper from './ApiHelper';
 import LocationHelper from './LocationHelper';
-import CryptoHelpers from './CryptoHelpers';
+import CryptoHelper from './CryptoHelper';
 
-export {PersistanceHelper, ApiHelper, LocationHelper, CryptoHelpers};
+export {PersistanceHelper, ApiHelper, LocationHelper, CryptoHelper};
